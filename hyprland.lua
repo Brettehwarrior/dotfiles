@@ -1,3 +1,6 @@
+hyprsfx = dofile(os.getenv("HOME") .. "/.config/hypr/hyprsfx.lua")
+hyprsfx.setup()
+
 require("monitors")
 require("autostart")
 require("environmentVariables")
@@ -12,3 +15,4 @@ require("keybindings/mediaKeys")
 
 require("windowWorkspaceRules")
 require("darkMode")
+require("wallpaper")

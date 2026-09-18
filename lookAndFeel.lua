@@ -2,12 +2,12 @@
 hl.config({
     general = {
         gaps_in  = 10,
-        gaps_out = 10,
+        gaps_out = 15,
 
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            active_border   = { colors = {"rgb(F2B93F)", "rgb(9C2A48)"}, angle = 2 },
             inactive_border = "rgba(595959aa)",
         },
 
@@ -21,12 +21,12 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 5,
+        rounding       = 3,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.98,
 
         shadow = {
             enabled      = true,
@@ -71,10 +71,15 @@ hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "
 hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
 hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "slidefade" })
+hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "slidefade" })
+hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "slidefade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+
+hl.animation({ leaf = "border",    enabled = true,  speed = 3,    bezier = "quick"})
+hl.animation({ leaf = "borderangle",    enabled = true,  speed = 100,    bezier = "almostLinear", style="loop"})
+
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3, bezier = "easeInOutCubic", style = "slidevert"})
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
