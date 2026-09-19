@@ -8,6 +8,7 @@ require("permissions")
 require("lookAndFeel")
 require("misc")
 require("input")
+require("windowRules")
 
 require("keybindings/programs")
 require("keybindings/workspaces")

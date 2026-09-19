@@ -5,8 +5,18 @@ local programs = require("settings/programs")
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(programs.terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(programs.discord))
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(programs.systemMonitor))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(programs.menu))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("killall -SIGUSR2 waybar")) -- reload waybar
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -s --clipboard-only"))
+
+-- Discord zone
+hl.bind(mainMod .. " + D", function()
+    hl.dispatch(hl.dsp.workspace.toggle_special("discord"))
+    hl.dispatch(hl.dsp.exec_cmd(programs.discord))
+end)
+hl.window_rule({
+    match = { class = "discord"},
+    pseudo = true,
+    workspace = "special:discord"
+})
