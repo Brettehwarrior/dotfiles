@@ -74,3 +74,6 @@ hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/de
 --         scroll_button = 274
 --     }
 -- })
+-- hl.config({
+--     misc = 
+-- })

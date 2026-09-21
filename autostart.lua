@@ -10,6 +10,4 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("swaync")
    hl.exec_cmd("hyprsunset --temperature 5600")
    hl.exec_cmd("flatpak run com.discordapp.Discord --start-minimized")
-
-   hl.exec_cmd("gsettings set org.gnome.desktop.wm.preferences button-layout ':'") -- Remove close button from some apps
 end)
