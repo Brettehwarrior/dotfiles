@@ -1,0 +1,77 @@
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+customCommands:
+  - key: "G"
+    description: "Using `gh cli` to operate GitHub"
+    commandMenu:
+      - key: "w"
+        context: "global"
+        description: "Open current repository in a web browser"
+        command: "gh repo view -w"
+        output: log
+      # Use defualt options
+      - key: "d"
+        description: "Create a GitHub repository and push to it, Use defualt options"
+        command: "gh repo create {{.Form.RepoName | quote}}
+          --source=.
+          --push
+          --add-readme
+          --public
+          --remote=origin"
+        context: "global"
+        output: log
+        loadingText: "Creating and preparing to push to it..."
+        prompts:
+          - type: "input"
+            key: "RepoName"
+            title: "Repository name"
+            initialValue: "{{runCommand \"bash -c 'basename $(pwd)'\"}}"
+      # Use custom options.
+      - key: "c"
+        description: "Create a GitHub repository and push to it, Custom"
+        command: "gh repo create {{.Form.RepoName | quote}}
+          --source=.
+          --push
+          --add-readme
+          --{{.Form.Visibility}}
+          {{if .Form.RemoteName}}--remote={{.Form.RemoteName}}{{end}}
+          {{if .Form.Description}}--description={{.Form.Description | quote}}{{end}}"
+
+        context: "global"
+        output: log
+        loadingText: "Creating and preparing to push to it..."
+        prompts:
+          - type: "input"
+            key: "RepoName"
+            title: "Repository name"
+            initialValue: "{{runCommand \"bash -c 'basename $(pwd)'\"}}"
+            # I used nu, because it is Cross-platform
+            # bash: {{runCommand \"bash -c 'basename $(pwd)'\"}}
+            # zsh: {{runCommand \"zsh -c 'basename $PWD'\"}}
+            # fish: {{runCommand \"fish -c 'basename (pwd)'\"}}
+            # pwsh: {{runCommand \"pwsh -c 'Split-Path -Leaf (Get-Location)'\"}}
+
+          - type: "menu"
+            key: "Visibility"
+            title: "visibility"
+            options:
+              - value: "public"
+                key: "a"
+              - value: "private"
+                key: "s"
+
+          - type: "input"
+            key: "Description"
+            title: "Description"
+            initialValue: ""
+
+          - type: "input"
+            key: "RemoteName"
+            title: "Remote Name"
+            initialValue: "origin"
+
+          - type: "confirm"
+            title: "Create and Push"
+            body: Are you sure you want to create a remote repository and push to it?
+
