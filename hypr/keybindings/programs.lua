@@ -7,8 +7,10 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser))
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(programs.systemMonitor))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(programs.menu))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("killall -SIGUSR2 waybar")) -- reload waybar
+hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd("killall -SIGUSR2 waybar")) -- reload waybar
+
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -s --clipboard-only"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/record-region"))
 
 -- "Singleton" binds
 function bindSingletonTitle(shortcut, specialWorkspaceId, regex, command)

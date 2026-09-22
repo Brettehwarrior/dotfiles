@@ -1,6 +1,8 @@
+local terminal = "kitty"
+
 return {
-    terminal    = "kitty",
-    fileManager = "dolphin",
+    terminal    = terminal,
+    fileManager = "kitty yazi",
     menu        = "fuzzel",
     discord     = "flatpak run com.discordapp.Discord",
     systemMonitor = "plasma-systemmonitor",
