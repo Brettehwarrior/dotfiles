@@ -32,7 +32,8 @@
         "sway/language",
         "battery",
         // "clock",
-        "custom/clock"
+        "custom/clock",
+        "custom/power"
     ],
     // Modules configuration
     // "hyprland/workspaces": {
