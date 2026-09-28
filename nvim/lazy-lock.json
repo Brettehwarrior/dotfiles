@@ -1,4 +1,4 @@
 {
   "bullets.nvim": { "branch": "main", "commit": "cc162bfd3b49982e6707958dee399df4cb6ba0d3" },
-  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" }
+  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" }
 }

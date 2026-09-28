@@ -45,7 +45,7 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '20px'
+  inner_gap: '10px'
 
   # Gap between windows and the screen edge.
   outer_gap:
@@ -61,7 +61,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#FCD62D'
+      color: '#FF6C1A'
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -85,7 +85,7 @@ window_effects:
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: '#a1a1a1'
     hide_title_bar:
       enabled: false
@@ -94,7 +94,7 @@ window_effects:
       style: 'square'
     transparency:
       enabled: false
-      opacity: '96%'
+      opacity: '95%'
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -110,7 +110,7 @@ window_behavior:
       centered: true
 
       # Whether to show floating windows as always on top.
-      shown_on_tp: false
+      shown_on_top: false
 
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
@@ -134,6 +134,12 @@ workspaces:
 window_rules:
   - commands: ['ignore']
     match:
+      # Evil unity
+      - window_process: { equals: 'Unity' }
+        window_title: { regex: '(Reloading)|(Select)|(Compiling)|(modified)|(C|cache)|(Hold)|(Import)|(FMOD)' }
+      - window_process: { regex: 'rider' }
+        window_title: { regex: '(Rename)|(Go to)|(Paste)' }
+
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
 
@@ -161,13 +167,13 @@ binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: 'resize'
     keybindings:
-      - commands: ['resize --width -2%']
+      - commands: ['resize --width -4%']
         bindings: ['h', 'left']
-      - commands: ['resize --width +2%']
+      - commands: ['resize --width +4%']
         bindings: ['l', 'right']
-      - commands: ['resize --height +2%']
+      - commands: ['resize --height +4%']
         bindings: ['k', 'up']
-      - commands: ['resize --height -2%']
+      - commands: ['resize --height -4%']
         bindings: ['j', 'down']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
@@ -195,25 +201,25 @@ keybindings:
     bindings: ['LWin+shift+down']
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: ['resize --width -2%']
+  - commands: ['resize --width -4%']
     bindings: ['LWin+u']
-  - commands: ['resize --width +2%']
+  - commands: ['resize --width +4%']
     bindings: ['LWin+p']
-  - commands: ['resize --height +2%']
+  - commands: ['resize --height +4%']
     bindings: ['LWin+o']
-  - commands: ['resize --height -2%']
+  - commands: ['resize --height -4%']
     bindings: ['LWin+i']
 
-  # As an LWinernative to the resize keybindings above, resize mode enables
+  # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
-  - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['LWin+r']
+  # - commands: ['wm-enable-binding-mode --name resize']
+  #   bindings: ['alt+r']
 
-  # Disables window management and all other keybindings until LWin+shift+p
+  # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
   - commands: ['wm-toggle-pause']
-    bindings: ['LWin+shift+p']
+    bindings: ['alt+shift+p']
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
@@ -221,16 +227,16 @@ keybindings:
     bindings: ['alt+v']
 
   # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ['wm-cycle-focus']
-    bindings: ['LWin+space']
+  # - commands: ['wm-cycle-focus']
+  #   bindings: ['alt+space']
 
   # Change the focused window to be floating.
   - commands: ['toggle-floating --centered']
-    bindings: ['LWin+shift+space']
+    bindings: ['alt+shift+space']
 
   # Change the focused window to be tiling.
-#  - commands: ['toggle-tiling']
-#    bindings: ['LWin+t']
+  - commands: ['toggle-tiling']
+    bindings: ['alt+t']
 
   # Change the focused window to be fullscreen.
   - commands: ['toggle-fullscreen']
@@ -250,33 +256,29 @@ keybindings:
 
   # Re-evaluate configuration file.
   - commands: ['wm-reload-config']
-    bindings: ['LWin+shift+r']
+    bindings: ['alt+shift+r']
 
   # Redraw all windows.
   - commands: ['wm-redraw']
-    bindings: ['LWin+shift+w']
+    bindings: ['alt+shift+w']
 
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
   - commands: ['shell-exec cmd']
     bindings: ['LWin+t']
-
-  - commands: ['shell-exec y']
-    bindings: ['LWin+e']
- 
-  - commands: ['shell-exec firefox']
-    bindings: ['LWin+b']
+  # - commands: ['shell-exec yazi']
+  #   bindings: ['LWin+e']
 
   # Focus the next/previous active workspace defined in `workspaces` config.
-  # - commands: ['focus --next-active-workspace']
-  #   bindings: ['alt+s']
-  # - commands: ['focus --prev-active-workspace']
-  #   bindings: ['alt+a']
+  - commands: ['focus --next-active-workspace']
+    bindings: ['alt+s']
+  - commands: ['focus --prev-active-workspace']
+    bindings: ['alt+a']
 
   # Focus the workspace that last had focus.
-  # - commands: ['focus --recent-workspace']
-  #   bindings: ['alt+d']
+  - commands: ['focus --recent-workspace']
+    bindings: ['alt+d']
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ['focus --workspace 1']
@@ -300,14 +302,14 @@ keybindings:
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
-  # - commands: ['move-workspace --direction left']
-  #   bindings: ['alt+shift+a']
-  # - commands: ['move-workspace --direction right']
-  #   bindings: ['alt+shift+f']
-  # - commands: ['move-workspace --direction up']
-  #   bindings: ['alt+shift+d']
-  # - commands: ['move-workspace --direction down']
-  #   bindings: ['alt+shift+s']
+  - commands: ['move-workspace --direction left']
+    bindings: ['alt+shift+a']
+  - commands: ['move-workspace --direction right']
+    bindings: ['alt+shift+f']
+  - commands: ['move-workspace --direction up']
+    bindings: ['alt+shift+d']
+  - commands: ['move-workspace --direction down']
+    bindings: ['alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
