@@ -195,7 +195,8 @@
 			"shutdown": "shutdown",
 			"reboot": "reboot",
 			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"hibernate": "systemctl hibernate",
+			"endsession": "loginctl terminate-user \"($USER)\""
 		}
     },
     "custom/clock": {
