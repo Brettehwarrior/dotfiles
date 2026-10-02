@@ -8,7 +8,9 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser))
 hl.window_rule({
     match = { title = "Picture-in-Picture" },
     float = true,
-    pin = true
+    pin = true,
+    no_initial_focus = true,
+    content = "video"
 })
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(programs.systemMonitor))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(programs.menu))
