@@ -5,6 +5,7 @@ local M = {}
 local home = os.getenv("HOME")
 local sounds_dir = home .. "/.config/hypr/sounds"
 local sounds_map_path = home .. "/.config/hypr/sounds.lua"
+local added_events = {}
 
 M.enabled = true
 M.volume = 1.0 -- percentage, not decibels
@@ -19,10 +20,16 @@ local function file_exists(path)
 	end
 end
 
-function M.play(file)
+function M.play(event)
 	if not M.enabled then
 		return
 	end
+	local sounds = dofile(sounds_map_path)
+	local file = sounds[event]
+	if not file then
+		return
+	end
+	
 	hl.exec_cmd(string.format("pw-play --volume %s '%s/%s'", tostring(M.volume), sounds_dir, file))
 end
 
@@ -55,6 +62,17 @@ function M.toggle()
 	})
 end
 
+function register_event_if_missing(event)
+	if added_events[event] then
+		return
+	end
+
+	hl.on(event, function()
+		M.play(event)
+	end)
+	table.insert(added_events, event)
+end
+
 function M.setup()
 	-- pop/latency mitigation
 	hl.on("hyprland.start", function()
@@ -66,10 +84,19 @@ function M.setup()
 	end
 
 	local sounds = dofile(sounds_map_path)
-	for event, file in pairs(sounds) do
-		hl.on(event, function()
-			M.play(file)
-		end)
+	for event, _ in pairs(sounds) do
+		register_event_if_missing(event)
+	end
+end
+
+function M.add_missing_events()
+	if not file_exists(sounds_map_path) then
+		return
+	end
+
+	local sounds = dofile(sounds_map_path)
+	for event, _ in pairs(sounds) do
+		register_event_if_missing(event)
 	end
 end
 
