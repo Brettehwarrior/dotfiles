@@ -1,0 +1,10 @@
+[2m2026-09-29T15:00:10.568540Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Failed to send response: channel closed
+[2m2026-09-29T15:00:10.670457Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Failed to send response: channel closed
+[2m2026-10-02T13:42:31.248415Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_rules[0].commands: unrecognized subcommand
+ at line 135 column 15
+[2m2026-10-02T13:42:33.445010Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_rules[0].commands: unrecognized subcommand
+ at line 135 column 15
+[2m2026-10-02T13:42:35.025973Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_rules[0].commands: unrecognized subcommand
+ at line 135 column 15
+[2m2026-10-02T13:43:03.692645Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_rules[0].commands: unrecognized subcommand
+ at line 135 column 15

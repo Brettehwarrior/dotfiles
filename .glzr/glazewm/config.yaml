@@ -136,7 +136,7 @@ window_rules:
     match:
       # Evil unity
       - window_process: { equals: 'Unity' }
-        window_title: { regex: '(Reloading)|(Select)|(Compiling)|(modified)|(C|cache)|(Hold)|(Import)|(FMOD)' }
+        window_title: { regex: '(Reloading)|(Select)|(Compiling)|(modified)|(C|cache)|(Hold)|(Import)|(FMOD)|(Package)' }
       - window_process: { regex: 'rider' }
         window_title: { regex: '(Rename)|(Go to)|(Paste)' }
 
