@@ -120,17 +120,6 @@ window_behavior:
       # Whether to show fullscreen windows as always on top.
       shown_on_top: false
 
-workspaces:
-  - name: '1'
-  - name: '2'
-  - name: '3'
-  - name: '4'
-  - name: '5'
-  - name: '6'
-  - name: '7'
-  - name: '8'
-  - name: '9'
-
 window_rules:
   - commands: ['ignore']
     match:
@@ -280,24 +269,30 @@ keybindings:
   - commands: ['focus --recent-workspace']
     bindings: ['alt+d']
 
+  # Focus monitors
+  - commands: ['focus --monitor 0']
+    bindings: ['LWin+ctrl+1']
+  - commands: ['focus --monitor 1']
+    bindings: ['LWin+ctrl+2']
+
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['focus --workspace 1']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 1']
     bindings: ['LWin+1']
-  - commands: ['focus --workspace 2']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 2']
     bindings: ['LWin+2']
-  - commands: ['focus --workspace 3']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 3']
     bindings: ['LWin+3']
-  - commands: ['focus --workspace 4']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 4']
     bindings: ['LWin+4']
-  - commands: ['focus --workspace 5']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 5']
     bindings: ['LWin+5']
-  - commands: ['focus --workspace 6']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 6']
     bindings: ['LWin+6']
-  - commands: ['focus --workspace 7']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 7']
     bindings: ['LWin+7']
-  - commands: ['focus --workspace 8']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 8']
     bindings: ['LWin+8']
-  - commands: ['focus --workspace 9']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 9']
     bindings: ['LWin+9']
 
   # Move the focused window's parent workspace to a monitor in a given
@@ -312,21 +307,78 @@ keybindings:
     bindings: ['alt+shift+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace 1', 'focus --workspace 1']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 1']
     bindings: ['LWin+shift+1']
-  - commands: ['move --workspace 2', 'focus --workspace 2']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 2']
     bindings: ['LWin+shift+2']
-  - commands: ['move --workspace 3', 'focus --workspace 3']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 3']
     bindings: ['LWin+shift+3']
-  - commands: ['move --workspace 4', 'focus --workspace 4']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 4']
     bindings: ['LWin+shift+4']
-  - commands: ['move --workspace 5', 'focus --workspace 5']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 5']
     bindings: ['LWin+shift+5']
-  - commands: ['move --workspace 6', 'focus --workspace 6']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 6']
     bindings: ['LWin+shift+6']
-  - commands: ['move --workspace 7', 'focus --workspace 7']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 7']
     bindings: ['LWin+shift+7']
-  - commands: ['move --workspace 8', 'focus --workspace 8']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 8']
     bindings: ['LWin+shift+8']
-  - commands: ['move --workspace 9', 'focus --workspace 9']
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\move_window_in_focused_monitor.py" 9']
     bindings: ['LWin+shift+9']
+
+workspaces:
+  - name: '0_1'
+    display_name: '1'
+    bind_to_monitor: 0
+  - name: '0_2'
+    display_name: '2'
+    bind_to_monitor: 0
+  - name: '0_3'
+    display_name: '3'
+    bind_to_monitor: 0
+  - name: '0_4'
+    display_name: '4'
+    bind_to_monitor: 0
+  - name: '0_5'
+    display_name: '5'
+    bind_to_monitor: 0
+  - name: '0_6'
+    display_name: '6'
+    bind_to_monitor: 0
+  - name: '0_7'
+    display_name: '7'
+    bind_to_monitor: 0
+  - name: '0_8'
+    display_name: '8'
+    bind_to_monitor: 0
+  - name: '0_9'
+    display_name: '9'
+    bind_to_monitor: 0
+    
+  - name: '1_1'
+    display_name: '1'
+    bind_to_monitor: 1
+  - name: '1_2'
+    display_name: '2'
+    bind_to_monitor: 1
+  - name: '1_3'
+    display_name: '3'
+    bind_to_monitor: 1
+  - name: '1_4'
+    display_name: '4'
+    bind_to_monitor: 1
+  - name: '1_5'
+    display_name: '5'
+    bind_to_monitor: 1
+  - name: '1_6'
+    display_name: '6'
+    bind_to_monitor: 1
+  - name: '1_7'
+    display_name: '7'
+    bind_to_monitor: 1
+  - name: '1_8'
+    display_name: '8'
+    bind_to_monitor: 1
+  - name: '1_9'
+    display_name: '9'
+    bind_to_monitor: 1
