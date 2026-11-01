@@ -259,6 +259,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-sh-at-startup "swaybg -i \"/home/trent/Pictures/Wallpapers/kitty.jpg\" -m fill"
+spawn-sh-at-startup "wlsunset -t 4000 -T 4001"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -331,8 +332,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+window-rule {
+    geometry-corner-radius 8 
     clip-to-geometry true
 }
 
@@ -428,6 +429,7 @@ binds {
     Mod+Ctrl+J     { focus-monitor-down; }
     Mod+Ctrl+K     { focus-monitor-up; }
     Mod+Ctrl+L     { focus-monitor-right; }
+    Mod+Tab	{ focus-monitor-next; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
