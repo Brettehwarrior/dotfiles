@@ -2,7 +2,7 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
-  startup_commands: ['shell-exec zebar']
+  startup_commands: ['shell-exec zebar', 'shell-exec %USERPROFILE%\\.glzr\\glazewm\\scripts\\tacky-borders.exe']
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
@@ -270,6 +270,8 @@ keybindings:
     bindings: ['alt+d']
 
   # Focus monitors
+  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_next_monitor.py"']
+    bindings: ['LWin+tab']
   - commands: ['focus --monitor 0']
     bindings: ['LWin+ctrl+1']
   - commands: ['focus --monitor 1']
