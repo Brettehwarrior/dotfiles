@@ -156,7 +156,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#5CFA67"
 
         // Color of the ring on inactive monitors.
         //
@@ -387,7 +387,8 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+
+    Mod+O repeat=false { toggle-overview; } // TODO: When release shortcuts are released, map this to Mod { release }
 
     Mod+X repeat=false { close-window; }
 
@@ -626,7 +627,7 @@ binds {
 }
 
 overview {
-    backdrop-color "#36173C55"
+    backdrop-color "#142912"
 }
 
 gestures {
