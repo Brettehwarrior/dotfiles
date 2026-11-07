@@ -278,9 +278,9 @@ keybindings:
     bindings: ['LWin+ctrl+2']
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 1']
+  - commands: ['shell-exec %USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.exe 1']
     bindings: ['LWin+1']
-  - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 2']
+  - commands: ['shell-exec %USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.exe 2']
     bindings: ['LWin+2']
   - commands: ['shell-exec --hide-window python "%USERPROFILE%\.glzr\glazewm\scripts\focus_workspace_in_focused_monitor.py" 3']
     bindings: ['LWin+3']
