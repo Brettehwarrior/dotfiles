@@ -405,10 +405,10 @@ binds {
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
 
-    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Left  { spawn "~/.config/niri/scripts/move-column-or-monitor-left.sh"; }
     Mod+Shift+Down  { move-window-down; }
     Mod+Shift+Up    { move-window-up; }
-    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Right { spawn "~/.config/niri/scripts/move-column-or-monitor-right.sh"; }
     Mod+Shift+H     { move-column-left; }
     Mod+Shift+J     { move-window-down; }
     Mod+Shift+K     { move-window-up; }
