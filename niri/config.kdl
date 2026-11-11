@@ -406,13 +406,13 @@ binds {
     Mod+K     { focus-window-or-workspace-up; }
 
     Mod+Shift+Left  { spawn "~/.config/niri/scripts/move-column-or-monitor-left.sh"; }
-    Mod+Shift+Down  { move-window-down; }
-    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
     Mod+Shift+Right { spawn "~/.config/niri/scripts/move-column-or-monitor-right.sh"; }
-    Mod+Shift+H     { move-column-left; }
-    Mod+Shift+J     { move-window-down; }
-    Mod+Shift+K     { move-window-up; }
-    Mod+Shift+L     { move-column-right; }
+    Mod+Shift+H     { spawn "~/.config/niri/scripts/move-column-or-monitor-left.sh"; }
+    Mod+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+L     { spawn "~/.config/niri/scripts/move-column-or-monitor-right.sh"; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -487,10 +487,10 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Ctrl+WheelScrollDown      { focus-column-right; }
-    Mod+Ctrl+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    Mod+Ctrl+WheelScrollDown      { spawn "~/.config/niri/scripts/focus-column-or-monitor-right.sh"; }
+    Mod+Ctrl+WheelScrollUp        { spawn "~/.config/niri/scripts/focus-column-or-monitor-left.sh"; }
+    Mod+Ctrl+Shift+WheelScrollDown { spawn "~/.config/niri/scripts/move-column-or-monitor-right.sh"; }
+    Mod+Ctrl+Shift+WheelScrollUp   { spawn "~/.config/niri/scripts/move-column-or-monitor-left.sh"; }
 
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
