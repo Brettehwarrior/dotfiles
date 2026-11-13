@@ -1,12 +1,17 @@
 #!/bin/bash
-# Fast path: focus the column to the left.
-# Only if we're in the first column, check for a monitor on the left.
 
-win=$(niri msg --json focused-window)
-[[ $win =~ pos_in_scrolling_layout\":\[([0-9]+) ]]
-col=${BASH_REMATCH[1]}
+get_col() {
+    local w
+    w=$(niri msg --json focused-window)
+    [[ $w =~ pos_in_scrolling_layout\":\[([0-9]+) ]]
+    printf '%s' "${BASH_REMATCH[1]}"
+}
 
-if [[ $col == 1 ]]; then
+before=$(get_col)
+niri msg action focus-column-left
+after=$(get_col)
+
+if [[ $before == "$after" ]]; then
     cur=$(niri msg --json focused-output)
     [[ $cur =~ logical\":\{\"x\":(-?[0-9]+) ]]
     cur_x=${BASH_REMATCH[1]}
@@ -23,4 +28,3 @@ if [[ $col == 1 ]]; then
     fi
 fi
 
-exec niri msg action focus-column-left
